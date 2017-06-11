@@ -11,7 +11,7 @@ export class AppComponent {
 
   search() {
     this.inSearch = true;
-    setTimeout(()=>{
+    setTimeout(() => {
       this.inSearch = false;
     }, 3000);
   }
