@@ -5,3 +5,7 @@ body {
   background-color: #fafafa;
   margin: 0;
 }
+
+md-toolbar-row.mat-toolbar-row {
+  height: 55px;
+}
