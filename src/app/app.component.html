@@ -1,94 +1,68 @@
 <md-toolbar color="primary">
-My App
+<button md-mini-fab (click)="sidenav.toggle()" title="search" style="margin-right: 10px;"><md-icon>search</md-icon></button>
+AppName
 </md-toolbar>
-<div style="padding-top: 80px;">
-in request,
-disable button,
-display loading image.
+
+<md-sidenav-container class="sidenav-container" role="main">
+<md-sidenav sidenav #sidenav class="sidenav" opened="true" mode="side" style="padding-left: 10px">
+<div>
+<button md-raised-button disabled="{{inSearch}}" (click)="search()" color="primary"><i class="material-icons">search</i>Search</button>
+<button md-raised-button disabled="{{inSearch}}">Clear</button>
 </div>
-<button md-raised-button disabled="{{inSearch}}" (click)="search()"><i class="material-icons">search</i>Search</button>
+<md-input-container>
+  <input mdInput placeholder="ID" value="">
+</md-input-container>
+<div>
+<md-input-container>
+  <input mdInput placeholder="Last Name" value="">
+</md-input-container>
+</div>
+<div>
+<md-input-container>
+  <input mdInput placeholder="First Name" value="">
+</md-input-container>
+</div>
+
+    <!--
+    <aio-nav-menu *ngIf="!isSideBySide" [nodes]="topMenuNarrowNodes" [currentNode]="currentNodes?.TopBarNarrow" [isWide]="false"></aio-nav-menu>
+    <aio-nav-menu [nodes]="sideNavNodes" [currentNode]="currentNodes?.SideNav" [isWide]="isSideBySide"></aio-nav-menu>
+
+    <div class="doc-version" title="Angular docs version {{currentDocVersion?.title}}">
+      <aio-select (change)="onDocVersionChange($event.index)" [options]="docVersions" [selected]="docVersions && docVersions[0]"></aio-select>
+    </div>
+    -->
+</md-sidenav>
+
+<section class="sidenav-content" role="content" style="padding: 60px 10px 0 10px;">
+    <!--
+    <aio-doc-viewer [doc]="currentDocument" (docRendered)="onDocRendered()"></aio-doc-viewer>
+    <aio-dt [on]="dtOn" [(doc)]="currentDocument"></aio-dt>
+    -->
+
+<!--
 <md-spinner *ngIf="inSearch"></md-spinner>
+-->
 <md-progress-bar *ngIf="inSearch" mode="indeterminate"></md-progress-bar>
 
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
+<div *ngIf="!inSearch">
+<md-card style="margin-bottom: 10px;">
+<md-list>
+ <md-list-item><md-icon>perm_identity</md-icon> ID</md-list-item>
+ <md-list-item><md-icon>face</md-icon> Name</md-list-item>
+ <md-list-item><md-icon>email</md-icon> E-Mail</md-list-item>
+</md-list>
+</md-card>
 
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
-aaa<br/>
+<md-card style="margin-bottom: 10px;">
+<md-list>
+ <md-list-item><md-icon>perm_identity</md-icon> ID</md-list-item>
+ <md-list-item><md-icon>face</md-icon> Name</md-list-item>
+ <md-list-item><md-icon>email</md-icon> E-Mail</md-list-item>
+</md-list>
+</md-card>
+</div>
+
+
+</section>
+
+</md-sidenav-container>
