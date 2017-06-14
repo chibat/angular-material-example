@@ -9,19 +9,33 @@ AppName
 <button md-raised-button disabled="{{inSearch}}" (click)="search()" color="primary"><i class="material-icons">search</i>Search</button>
 <button md-raised-button disabled="{{inSearch}}">Clear</button>
 </div>
+
+<md-list>
+<md-list-item>
+<md-icon>perm_identity</md-icon> 
 <md-input-container>
-  <input mdInput placeholder="ID" value="">
+ <input mdInput placeholder="ID" value="">
 </md-input-container>
-<div>
+</md-list-item>
+</md-list>
+
+<md-list>
+<md-list-item>
+<md-icon>group</md-icon> 
 <md-input-container>
   <input mdInput placeholder="Last Name" value="">
 </md-input-container>
-</div>
-<div>
+</md-list-item>
+</md-list>
+
+<md-list>
+<md-list-item>
+<md-icon>person</md-icon> 
 <md-input-container>
   <input mdInput placeholder="First Name" value="">
 </md-input-container>
-</div>
+</md-list-item>
+</md-list>
 
     <!--
     <aio-nav-menu *ngIf="!isSideBySide" [nodes]="topMenuNarrowNodes" [currentNode]="currentNodes?.TopBarNarrow" [isWide]="false"></aio-nav-menu>
@@ -45,6 +59,17 @@ AppName
 <md-progress-bar *ngIf="inSearch" mode="indeterminate"></md-progress-bar>
 
 <div *ngIf="!inSearch">
+
+<md-list>
+<md-list-item>
+<md-icon>filter_list</md-icon> 
+<md-input-container>
+<input mdInput placeholder="Filter" value="">
+</md-input-container>
+<button md-button><md-icon>view_agenda</md-icon></button>
+</md-list-item>
+</md-list>
+
 <md-card style="margin-bottom: 10px;">
 <md-list>
  <md-list-item><md-icon>perm_identity</md-icon> ID</md-list-item>
@@ -60,6 +85,23 @@ AppName
  <md-list-item><md-icon>email</md-icon> E-Mail</md-list-item>
 </md-list>
 </md-card>
+
+<md-card style="margin-bottom: 10px;">
+<md-list>
+ <md-list-item><md-icon>perm_identity</md-icon> ID</md-list-item>
+ <md-list-item><md-icon>face</md-icon> Name</md-list-item>
+ <md-list-item><md-icon>email</md-icon> E-Mail</md-list-item>
+</md-list>
+</md-card>
+
+<md-card style="margin-bottom: 10px;">
+<md-list>
+ <md-list-item><md-icon>perm_identity</md-icon> ID</md-list-item>
+ <md-list-item><md-icon>face</md-icon> Name</md-list-item>
+ <md-list-item><md-icon>email</md-icon> E-Mail</md-list-item>
+</md-list>
+</md-card>
+
 </div>
 
 

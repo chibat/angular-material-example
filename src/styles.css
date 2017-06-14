@@ -9,3 +9,8 @@ body {
 md-toolbar-row.mat-toolbar-row {
   height: 55px;
 }
+
+div.mat-list-item-content {
+  padding-left: 0px;
+}
+
