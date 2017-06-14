@@ -8,11 +8,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
   inSearch = false;
+  cardSelectedFlag = false;
 
   search() {
     this.inSearch = true;
     setTimeout(() => {
       this.inSearch = false;
     }, 3000);
+  }
+
+  onClickCard() {
+    this.cardSelectedFlag = !this.cardSelectedFlag;
   }
 }

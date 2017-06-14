@@ -70,7 +70,24 @@ AppName
 </md-list-item>
 </md-list>
 
-<md-card style="margin-bottom: 10px;">
+<md-card style="margin-bottom: 10px;" (click)="sidenav.toggle(); onClickCard();">
+<md-list>
+ <md-list-item><md-icon>perm_identity</md-icon> ID</md-list-item>
+ <md-list-item><md-icon>face</md-icon> Name</md-list-item>
+ <md-list-item><md-icon>email</md-icon> E-Mail</md-list-item>
+ <md-list-item *ngIf="cardSelectedFlag">
+ <button md-raised-button disabled="{{inSearch}}" color="primary">Tool 1</button>
+ &nbsp;
+ <button md-raised-button disabled="{{inSearch}}" color="primary">Tool 2</button>
+ &nbsp;
+ <button md-raised-button disabled="{{inSearch}}" color="primary">Tool 3</button>
+ &nbsp;
+ <button md-raised-button disabled="{{inSearch}}" color="primary">Tool 4</button>
+ </md-list-item>
+</md-list>
+</md-card>
+
+<md-card style="margin-bottom: 10px;" (click)="sidenav.toggle()">
 <md-list>
  <md-list-item><md-icon>perm_identity</md-icon> ID</md-list-item>
  <md-list-item><md-icon>face</md-icon> Name</md-list-item>
@@ -78,7 +95,7 @@ AppName
 </md-list>
 </md-card>
 
-<md-card style="margin-bottom: 10px;">
+<md-card style="margin-bottom: 10px;" (click)="sidenav.toggle()">
 <md-list>
  <md-list-item><md-icon>perm_identity</md-icon> ID</md-list-item>
  <md-list-item><md-icon>face</md-icon> Name</md-list-item>
@@ -86,15 +103,7 @@ AppName
 </md-list>
 </md-card>
 
-<md-card style="margin-bottom: 10px;">
-<md-list>
- <md-list-item><md-icon>perm_identity</md-icon> ID</md-list-item>
- <md-list-item><md-icon>face</md-icon> Name</md-list-item>
- <md-list-item><md-icon>email</md-icon> E-Mail</md-list-item>
-</md-list>
-</md-card>
-
-<md-card style="margin-bottom: 10px;">
+<md-card style="margin-bottom: 10px;" (click)="sidenav.toggle()">
 <md-list>
  <md-list-item><md-icon>perm_identity</md-icon> ID</md-list-item>
  <md-list-item><md-icon>face</md-icon> Name</md-list-item>
