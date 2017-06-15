@@ -1,6 +1,21 @@
 <md-toolbar color="primary">
 <button md-mini-fab (click)="sidenav.toggle()" title="search" style="margin-right: 10px;"><md-icon>search</md-icon></button>
 AppName
+<span style="flex: 1 1 auto"></span>
+<md-icon>notifications</md-icon>
+<button md-icon-button [mdMenuTriggerFor]="menu">
+  <md-icon>more_vert</md-icon>
+</button>
+<md-menu #menu="mdMenu">
+  <button md-menu-item>
+    <md-icon>build</md-icon>
+    <span>開発者ツール</span>
+  </button>
+  <button md-menu-item>
+    <md-icon>power_settings_new</md-icon>
+    <span>ログアウト</span>
+  </button>
+</md-menu>
 </md-toolbar>
 
 <md-sidenav-container class="sidenav-container" role="main">
@@ -111,9 +126,49 @@ AppName
 </md-list>
 </md-card>
 
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+aaa<br/>
+
 </div>
 
 
 </section>
 
 </md-sidenav-container>
+
+<button *ngIf="visibleMoveButton" md-mini-fab style="position: fixed; bottom: 10px; right:10px; z-index: 999" (click)="scrollToTop()" ><md-icon>arrow_upward</md-icon></button>
