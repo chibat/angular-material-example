@@ -1,18 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+
+class Condition {
+  id = new FormControl();
+  email = new FormControl();
+  phone = new FormControl();
+  postalCode = new FormControl();
+}
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
   title = 'app';
   inSearch = false;
   cardSelectedFlag = false;
 
   visibleMoveButton = false;
 
-  constructor() {
+  condition = new Condition();
+  form: FormGroup;
+
+  constructor(private fb: FormBuilder) {
     window.addEventListener('scroll', (e) => {
       if (window.pageYOffset < 100) {
           this.visibleMoveButton = false;
@@ -23,6 +35,13 @@ export class AppComponent {
         alert('bottom');
       }
     });
+  }
+
+  ngOnInit(): void {
+    this.buildForm();
+  }
+
+  onSubmit() {
   }
 
   private getScrollBottom() {
@@ -45,5 +64,24 @@ export class AppComponent {
 
   onClickCard() {
     this.cardSelectedFlag = !this.cardSelectedFlag;
+  }
+
+  buildForm(): void {
+    this.form = this.fb.group({
+      'id': this.condition.id,
+      'email': this.condition.email
+    });
+
+    this.form.valueChanges.subscribe(data => this.onValueChanged(data));
+    this.onValueChanged();
+  }
+
+  multiKeyError = false;
+
+  onValueChanged(data?: any) {
+    this.multiKeyError = false;
+    if (this.condition.id.value && this.condition.email.value) {
+      this.multiKeyError = true;
+    }
   }
 }

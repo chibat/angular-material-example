@@ -25,13 +25,32 @@ AppName
 <button md-raised-button disabled="{{inSearch}}">Clear</button>
 </div>
 
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<div *ngIf="multiKeyError">
+multiKeyError
+</div>
+
 <md-list>
 <md-list-item>
 <md-icon>perm_identity</md-icon> 
 <md-input-container>
- <input mdInput placeholder="ID" value="">
+<input id="id" name="id" type="text" maxlength="5" placeholder="ID" value="" mdInput [formControl]="condition.id" pattern="[1-9][0-9]*" />
 </md-input-container>
 </md-list-item>
+</md-list>
+<div *ngIf="condition.id.errors && (condition.id.dirty || condition.id.touched)" class="alert alert-danger">
+<div [hidden]="!condition.id.errors.pattern">input number</div>
+</div>
+
+<md-list>
+<md-list-item>
+<md-input-container>
+<input id="email" name="email" type="text" maxlength="10" placeholder="E-Mail" value="" mdInput [formControl]="condition.email" pattern=".+@.+\..+" />
+</md-input-container>
+</md-list-item>
+<div *ngIf="condition.email.errors && (condition.email.dirty || condition.email.touched)" class="alert alert-danger">
+<div [hidden]="!condition.email.errors.pattern">input e-mail format</div>
+</div>
 </md-list>
 
 <md-list>
@@ -52,21 +71,11 @@ AppName
 </md-list-item>
 </md-list>
 
-    <!--
-    <aio-nav-menu *ngIf="!isSideBySide" [nodes]="topMenuNarrowNodes" [currentNode]="currentNodes?.TopBarNarrow" [isWide]="false"></aio-nav-menu>
-    <aio-nav-menu [nodes]="sideNavNodes" [currentNode]="currentNodes?.SideNav" [isWide]="isSideBySide"></aio-nav-menu>
+</form>
 
-    <div class="doc-version" title="Angular docs version {{currentDocVersion?.title}}">
-      <aio-select (change)="onDocVersionChange($event.index)" [options]="docVersions" [selected]="docVersions && docVersions[0]"></aio-select>
-    </div>
-    -->
 </md-sidenav>
 
 <section class="sidenav-content" role="content" style="padding: 60px 10px 0 10px;">
-    <!--
-    <aio-doc-viewer [doc]="currentDocument" (docRendered)="onDocRendered()"></aio-doc-viewer>
-    <aio-dt [on]="dtOn" [(doc)]="currentDocument"></aio-dt>
-    -->
 
 <!--
 <md-spinner *ngIf="inSearch"></md-spinner>
