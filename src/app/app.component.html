@@ -1,6 +1,6 @@
 <md-toolbar color="primary">
-<button md-mini-fab (click)="sidenav.toggle()" mdTooltip="Search" style="margin-right: 10px;"><md-icon>search</md-icon></button>
 AppName
+<button md-button mdTooltip="Search" style="margin-right: 10px;"><md-icon>search</md-icon> Search</button>
 <span style="flex: 1 1 auto"></span>
 <md-icon>notifications</md-icon>
 <button md-icon-button [mdMenuTriggerFor]="menu" mdTooltip="Menu" mdTooltipPosition="left">
@@ -20,10 +20,6 @@ AppName
 
 <md-sidenav-container class="sidenav-container" role="main">
 <md-sidenav sidenav #sidenav class="sidenav" opened="true" mode="side" style="padding-left: 10px">
-<div>
-<button md-raised-button disabled="{{inSearch}}" (click)="search()" color="primary"><i class="material-icons">search</i>Search</button>
-<button md-raised-button disabled="{{inSearch}}">Clear</button>
-</div>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
 <div *ngIf="multiKeyError">
@@ -71,6 +67,11 @@ multiKeyError
 </md-list-item>
 </md-list>
 
+<div>
+<button md-raised-button disabled="{{inSearch}}" (click)="search()" color="primary"><i class="material-icons">search</i>Search</button>
+<button md-raised-button disabled="{{inSearch}}">Clear</button>
+</div>
+
 </form>
 
 </md-sidenav>
@@ -84,17 +85,21 @@ multiKeyError
 
 <div *ngIf="!inSearch">
 
-<md-list>
-<md-list-item>
-<md-icon>filter_list</md-icon> 
+<div>
+<button md-icon-button (click)="sidenav.toggle(false)" *ngIf="sidenav.opened">
+<md-icon>keyboard_arrow_left</md-icon>
+</button>
+<button md-icon-button (click)="sidenav.toggle(true)" *ngIf="!sidenav.opened">
+<md-icon>keyboard_arrow_right</md-icon>
+</button>
+<md-icon style="vertical-align: middle">filter_list</md-icon> 
 <md-input-container>
 <input mdInput placeholder="Filter" value="">
 </md-input-container>
 <button md-button><md-icon>view_agenda</md-icon></button>
-</md-list-item>
-</md-list>
+</div>
 
-<md-card style="margin-bottom: 10px;" (click)="sidenav.toggle(); onClickCard();">
+<md-card style="margin-bottom: 10px;" (click)="onClickCard();">
 <md-list>
  <md-list-item><md-icon>perm_identity</md-icon> ID</md-list-item>
  <md-list-item><md-icon>face</md-icon> Name</md-list-item>
