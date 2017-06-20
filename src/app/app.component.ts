@@ -6,6 +6,7 @@ class Condition {
   email = new FormControl();
   phone = new FormControl();
   postalCode = new FormControl();
+  birthday =  new FormControl();
 }
 
 @Component({
@@ -32,7 +33,7 @@ export class AppComponent implements OnInit {
           this.visibleMoveButton = true;
       }
       if (this.getScrollBottom() === 0) {
-        alert('bottom');
+        // alert('bottom');
       }
     });
   }
@@ -56,6 +57,7 @@ export class AppComponent implements OnInit {
   }
 
   search() {
+    alert(toString.call(this.condition.birthday.value));
     this.inSearch = true;
     setTimeout(() => {
       this.inSearch = false;

@@ -67,6 +67,12 @@ multiKeyError
 </md-list-item>
 </md-list>
 
+<md-input-container>
+  <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" [formControl]="condition.birthday">
+  <button mdSuffix [mdDatepickerToggle]="picker"></button>
+</md-input-container>
+<md-datepicker #picker></md-datepicker>
+
 <div>
 <button md-raised-button disabled="{{inSearch}}" (click)="search()" color="primary"><i class="material-icons">search</i>Search</button>
 <button md-raised-button disabled="{{inSearch}}">Clear</button>
@@ -116,7 +122,7 @@ multiKeyError
 </md-list>
 </md-card>
 
-<md-card style="margin-bottom: 10px;" (click)="sidenav.toggle()">
+<md-card style="margin-bottom: 10px;" (click)="onClickCard();">
 <md-list>
  <md-list-item><md-icon>perm_identity</md-icon> ID</md-list-item>
  <md-list-item><md-icon>face</md-icon> Name</md-list-item>
@@ -124,7 +130,7 @@ multiKeyError
 </md-list>
 </md-card>
 
-<md-card style="margin-bottom: 10px;" (click)="sidenav.toggle()">
+<md-card style="margin-bottom: 10px;" (click)="onClickCard();">
 <md-list>
  <md-list-item><md-icon>perm_identity</md-icon> ID</md-list-item>
  <md-list-item><md-icon>face</md-icon> Name</md-list-item>
@@ -132,7 +138,7 @@ multiKeyError
 </md-list>
 </md-card>
 
-<md-card style="margin-bottom: 10px;" (click)="sidenav.toggle()">
+<md-card id="hoge" style="margin-bottom: 10px;" (click)="onClickCard();">
 <md-list>
  <md-list-item><md-icon>perm_identity</md-icon> ID</md-list-item>
  <md-list-item><md-icon>face</md-icon> Name</md-list-item>
