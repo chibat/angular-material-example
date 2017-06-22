@@ -9,11 +9,11 @@ AppName
 <md-menu #menu="mdMenu">
   <button md-menu-item>
     <md-icon>build</md-icon>
-    <span>開発者ツール</span>
+    <span>tool</span>
   </button>
   <button md-menu-item>
     <md-icon>power_settings_new</md-icon>
-    <span>ログアウト</span>
+    <span>Logout</span>
   </button>
 </md-menu>
 </md-toolbar>
@@ -122,7 +122,7 @@ multiKeyError
 </md-list>
 </md-card>
 
-<md-card style="margin-bottom: 10px;" (click)="onClickCard();">
+<md-card style="margin-bottom: 10px;" (click)="scroll($event);" id="hoge">
 <md-list>
  <md-list-item><md-icon>perm_identity</md-icon> ID</md-list-item>
  <md-list-item><md-icon>face</md-icon> Name</md-list-item>

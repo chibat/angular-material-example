@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
+
 class Condition {
   id = new FormControl();
   email = new FormControl();
@@ -12,9 +20,43 @@ class Condition {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('heroState', [
+      state('inactive', style({
+        /* backgroundColor: '#eee', */
+        transform: 'scale(1)',
+        zIndex: '9'
+      })),
+      state('active',   style({
+        /*backgroundColor: '#cfd8dc',*/
+        /* transform: 'scale(1, 1.1)', */
+        zIndex: '10',
+        position: 'absolute', top: '100px'
+      })),
+      transition('inactive => active', animate('100ms ease-in')),
+      transition('active => inactive', animate('100ms ease-out'))
+    ])
+  ]
 })
 export class AppComponent implements OnInit {
+
+  scroll(event) {
+
+    const element = document.getElementById('hoge');
+
+    var rect = element.getBoundingClientRect() ;
+    var positionX = rect.left + window.pageXOffset;
+    var positionY = rect.top + window.pageYOffset;
+
+    window.scrollTo( positionX, positionY - 70) ;
+
+  }
+
+  state = 'inactive';
+  toggleState() {
+    this.state = (this.state === 'active' ? 'inactive' : 'active');
+  }
 
   title = 'app';
   inSearch = false;
